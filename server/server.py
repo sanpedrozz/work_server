@@ -6,6 +6,8 @@ redis_cli = RedisClient()
 
 async def accept(request):
     data = await request.json()
+    print(data)
+
     robot_name = data[0]['device']
     data = sorted(data, key=lambda val: val['i'])
 

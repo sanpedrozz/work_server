@@ -15,16 +15,19 @@ if __name__ == '__main__':
         server.start()
         logger.info("Web server started")
 
-        # db_worker = DBWorker()
-        # db_worker.get_devices()
+        db_worker = DBWorker()
+        db_worker.get_devices()
+
+        for plc in db_worker.plcs:
+            worker = Worker(**plc)
+            worker_process = mp.Process(target=worker.run)
+            worker_process.start()
+
         # # db_worker.run()
         # db_worker_process = mp.Process(target=db_worker.run)
         # db_worker_process.start()
 
-        # for plc in db_worker.plcs:
-        #     worker = Worker(**plc)
-        #     worker_process = mp.Process(target=worker.run)
-        #     worker_process.start()
+
 
     except Exception as error:
-        logger.error(f'main.py error {error}:\n\n {traceback.format_exc()}\n')
+        logger.error(f'main.py error {error}:\n\n {tb.format_exc()}\n')
