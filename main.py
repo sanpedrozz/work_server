@@ -5,8 +5,8 @@ from aiohttp import web
 
 from server.server import app
 from logs.logger import logger
-from worker import Worker
-from db.db_worker import DBWorker
+# from worker import Worker
+# from db.db_worker import DBWorker
 from config import Config
 
 if __name__ == '__main__':
