@@ -4,14 +4,15 @@ import pathlib
 class Config:
     def __init__(self):
         pass
+    db_devices = {'database': 'OPC',
+                  'user': 'postgres',
+                  'password': '6450300',
+                  'host': '192.168.201.40',
+                  'port': '5432'}
 
     PATH = pathlib.Path(__file__).parent.resolve()
 
-    DB_NAME = 'OPC'
-    DB_USER = 'postgres'
-    DB_PASSWORD = '6450300'
-    DB_HOST = '192.168.201.40'
-    DB_PORT = '5432'
+
 
 
 alarm_robot_token = "1691655389:AAEov2b8_8tFnMj3Xz_XYArIAE87t4-nMwM"

@@ -3,10 +3,10 @@ from psycopg2.extras import RealDictCursor
 
 
 class DBConnector:
-    def __init__(self, db_name: str, user: str, psw: str, host: str, port: str):
-        self.connect = psycopg2.connect(database=db_name,
+    def __init__(self, database: str, user: str, password: str, host: str, port: str):
+        self.connect = psycopg2.connect(database=database,
                                         user=user,
-                                        password=psw,
+                                        password=password,
                                         host=host,
                                         port=port,
                                         cursor_factory=RealDictCursor)
