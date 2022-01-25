@@ -30,7 +30,7 @@ class Robot(Thread):
         super().__init__()
 
         self.name = name
-        self.plc = PLC(ip, db_tags)
+        # self.plc = PLC(ip, db_tags)
         self.redis_client = RedisClient()
         self.current_task = None  # Task object
 
