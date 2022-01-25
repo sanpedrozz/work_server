@@ -19,5 +19,9 @@ if __name__ == '__main__':
             worker_process = mp.Process(target=worker.run)
             worker_process.start()
 
+
+
+
+
     except Exception as error:
         logger.error(f'main.py error {error}:\n\n {tb.format_exc()}\n')
