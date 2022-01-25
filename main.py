@@ -17,8 +17,8 @@ if __name__ == '__main__':
         server.start()
         logger.info("Web server started")
 
-        db_worker = DBDevices()
-        for plc in db_worker.get_devices():
+        db_devices = DBDevices()
+        for plc in db_devices.get_devices():
             worker = Worker(**plc)
             worker_process = mp.Process(target=worker.run)
             worker_process.start()

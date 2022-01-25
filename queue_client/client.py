@@ -1,9 +1,9 @@
-import json
+import pickle
 from functools import wraps
 from typing import List
 
 from redis.client import Redis
-from queue_client.redis_variables import SQL_INSERT
+from queue_client.variables import SQL_INSERT
 
 
 def singleton(cls):
