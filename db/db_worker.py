@@ -1,4 +1,4 @@
-from db.dbconnector import DBConnector
+from db_worker.dbconnector import DBConnector
 from config import Config
 
 

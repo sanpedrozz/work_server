@@ -5,7 +5,7 @@ from aiohttp import web
 
 from server.server import app
 from logs.logger import logger
-from db.db import DBDevices
+from db.db_worker import DBDevices
 
 
 # from worker import Worker
@@ -13,12 +13,11 @@ from config import Config
 
 if __name__ == '__main__':
     try:
-        # server = mp.Process(target=web.run_app, args=(app, ), kwargs={'port': 8081})
-        # server.start()
-        # logger.info("Web server started")
+        server = mp.Process(target=web.run_app, args=(app, ), kwargs={'port': 8081})
+        server.start()
+        logger.info("Web server started")
 
         db_worker = DBDevices()
-        db_worker.get_devices()
         for plc in db_worker.get_devices():
             worker = Worker(**plc)
             worker_process = mp.Process(target=worker.run)
